@@ -40,22 +40,8 @@ This downloads the current Office Deployment Tool and updates `Files\setup.exe`.
 | Update Channel | `Current`, `MonthlyEnterprise`, `SemiAnnual` |
 | Teams | `WithTeams`, `NoTeams` |
 | Shared PC Mode | `SPC` |
-| Architecture | `x86` |
 
-64-bit is the standard architecture and does not require an architecture suffix.
-
-### Examples
-
-```text
-365-Current-WithTeams
-365-Current-NoTeams
-365-Current-WithTeams-SPC
-365-MonthlyEnterprise-NoTeams
-365-MonthlyEnterprise-WithTeams-SPC
-365-SemiAnnual-WithTeams
-365-SemiAnnual-NoTeams-SPC
-365-MonthlyEnterprise-WithTeams-x86
-```
+64-bit is the standard architecture and does not require an architecture suffix. No support for x86 versions (yet)
 
 ## Supported Versions
 
@@ -71,7 +57,6 @@ This downloads the current Office Deployment Tool and updates `Files\setup.exe`.
 365-MonthlyEnterprise-NoTeams-SPC
 365-MonthlyEnterprise-WithTeams
 365-MonthlyEnterprise-WithTeams-SPC
-365-MonthlyEnterprise-WithTeams-x86
 
 365-SemiAnnual-NoTeams
 365-SemiAnnual-NoTeams-SPC
@@ -253,4 +238,5 @@ When adding a configuration:
 - Add the corresponding value to the `-Version` parameter `ValidateSet`.
 - Add the configuration to the version selection logic in `Deploy-M365Apps.ps1`.
 - Ensure the architecture is compatible with the installed Microsoft 365 Apps architecture.
+- Look at the other configuration files to align to whats already created
 - Ensure the selected product is appropriately licensed.
