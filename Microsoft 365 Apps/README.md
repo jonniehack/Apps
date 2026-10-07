@@ -238,5 +238,5 @@ When adding a configuration:
 - Add the corresponding value to the `-Version` parameter `ValidateSet`.
 - Add the configuration to the version selection logic in `Deploy-M365Apps.ps1`.
 - Ensure the architecture is compatible with the installed Microsoft 365 Apps architecture.
-- Look at the other configuration files to align to whats already created
+- Look at the other configuration files to align to whats already created.
 - Ensure the selected product is appropriately licensed.
