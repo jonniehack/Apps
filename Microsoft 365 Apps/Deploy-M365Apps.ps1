@@ -205,7 +205,6 @@ function Install-ADTDeployment
         default                               { $ConfigurationFile = '365-Current-WithTeams.xml' }
     }
 
-
     # Pre-Install Clean up.
     # Not necessary for Visio or Project
 
@@ -261,11 +260,9 @@ function Install-ADTDeployment
 
     } # Pre-Install
 
-
     # Install Microsoft 365 Apps using the selected configuration.
-    Start-ADTProcess -FilePath 'setup.exe' -ArgumentList "/Configure $ConfigurationFile" -WorkingDirectory $adtSession.DirFiles
-
-
+    Start-ADTProcess -FilePath 'setup.exe' -ArgumentList "/Configure $ConfigurationFile" -WorkingDirectory $adtSession.DirFile
+    
     ##================================================
     ## MARK: Post-Install
     ##================================================
