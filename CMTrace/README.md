@@ -57,8 +57,8 @@ Create a **Windows app (Win32)** package containing `cmtrace.exe` and both Power
 | Setting | Value |
 | --- | --- |
 | App type | Windows app (Win32) |
-| Install command | `%SystemRoot%\Sysnative\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\CMTraceInstall.ps1` |
-| Uninstall command | `%SystemRoot%\Sysnative\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\CMTraceUninstall.ps1` |
+| Install command | `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\CMTraceInstall.ps1` |
+| Uninstall command | `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\CMTraceUninstall.ps1` |
 | Install behaviour | System |
 | Device restart behaviour | No specific action |
 | Detection rule type | File |
@@ -67,7 +67,7 @@ Create a **Windows app (Win32)** package containing `cmtrace.exe` and both Power
 | Detection method | File or folder exists |
 | Associated with a 32-bit app on 64-bit clients | No |
 
-The `Sysnative` path makes Intune's 32-bit execution context launch 64-bit PowerShell, so System32 is not redirected to SysWOW64. The scripts require administrative permissions.
+The commands above match the manual installation and uninstallation examples. Configure the Intune app to run in the System context. On 64-bit Windows, ensure the scripts execute using 64-bit PowerShell so System32 is not redirected to SysWOW64.
 
 ### Optional version-based detection
 
