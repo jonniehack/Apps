@@ -45,6 +45,8 @@ This downloads the current Office Deployment Tool and updates `Files\setup.exe`.
 
 ## Supported Versions
 
+Semi-Annual Channel has been migrated as of June 2026 | [https://learn.microsoft.com/en-us/microsoft-365-apps/updates/unified-update-channels](https://learn.microsoft.com/en-us/microsoft-365-apps/updates/unified-update-channels)
+
 ### Microsoft 365 Apps
 
 ```text
