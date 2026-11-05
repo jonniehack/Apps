@@ -37,7 +37,7 @@ This downloads the current Office Deployment Tool and updates `Files\setup.exe`.
 | Component | Values |
 |---|---|
 | Product | `365` |
-| Update Channel | `Current`, `MonthlyEnterprise`, `SemiAnnual` |
+| Update Channel | `Current`, `MonthlyEnterprise` |
 | Teams | `WithTeams`, `NoTeams` |
 | Shared PC Mode | `SPC` |
 
@@ -57,11 +57,6 @@ This downloads the current Office Deployment Tool and updates `Files\setup.exe`.
 365-MonthlyEnterprise-NoTeams-SPC
 365-MonthlyEnterprise-WithTeams
 365-MonthlyEnterprise-WithTeams-SPC
-
-365-SemiAnnual-NoTeams
-365-SemiAnnual-NoTeams-SPC
-365-SemiAnnual-WithTeams
-365-SemiAnnual-WithTeams-SPC
 ```
 
 ### Visio and Project
@@ -217,9 +212,6 @@ Each supported `-Version` value maps to an XML configuration file in the `Files`
 
 365-MonthlyEnterprise-NoTeams-SPC
     -> Files\365-MonthlyEnterprise-NoTeams-SPC.xml
-
-365-SemiAnnual-WithTeams
-    -> Files\365-SemiAnnual-WithTeams.xml
 
 365-VisioPlan2
     -> Files\365-VisioPlan2.xml
