@@ -1,6 +1,6 @@
 # CMTrace
 
-<img src="../_Icons/systemcentre.png" alt="System Center logo" width="96">
+<img src="/_Icons/SystemCentre.png" alt="System Center logo" width="96">
 
 **CMTrace** is Microsoft's log viewer distributed with Microsoft Configuration Manager (ConfigMgr). It makes Configuration Manager and other text-based logs easier to read, including highlighting errors and warnings.
 
