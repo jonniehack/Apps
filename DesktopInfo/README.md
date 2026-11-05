@@ -53,7 +53,11 @@ Both configurations use a single-column layout, Consolas font, colour-coded sect
 
 ## Screenshots
 
-Screenshots of the Full and CutDown layouts will be added here once their image files are available in the repository.
+| Full configuration | CutDown configuration |
+| :---: | :---: |
+| ![DesktopInfo Full configuration](img/Full.png) | ![DesktopInfo CutDown configuration](img/Cutdown.png) |
+
+The **Full** layout provides detailed system information, while **CutDown** keeps the display compact with the essentials.
 
 ## Configuration file naming — important
 
