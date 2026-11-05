@@ -53,7 +53,11 @@ Both configurations use a single-column layout, Consolas font, colour-coded sect
 
 ## Screenshots
 
-Screenshots of the Full and CutDown layouts will be added here once their image files are available in the repository.
+| Full configuration | CutDown configuration |
+| :---: | :---: |
+| ![DesktopInfo Full configuration](img/Full.png) | ![DesktopInfo CutDown configuration](img/Cutdown.png) |
+
+The **Full** layout provides detailed system information, while **CutDown** keeps the display compact with the essentials.
 
 ## Configuration file naming — important
 
@@ -67,13 +71,13 @@ Do not package both variants as competing active configurations. Keep the origin
 ## Preparing a deployment package
 
 1. Download the latest release from the [official DesktopInfo website](https://www.glenn.delahoy.com/desktopinfo/).
-2. Extract the download and consult its included PDF documentation as needed.
-3. Prepare a clean source folder with the latest `DesktopInfo.exe`, the `DesktopInfo.ps1` installer and the chosen configuration.
+2. Extract the downloaded release.
+3. Prepare a clean source folder containing the latest `DesktopInfo.exe`, `DesktopInfo.ps1`, the required `DesktopInfo.lnk` startup shortcut and the chosen configuration.
 4. For **Full**, include `desktopinfo.ini`. For **CutDown**, copy `desktopinfo-cutdown.ini` and rename the copy to `desktopinfo.ini`.
 5. Ensure that the packaging folder contains only the files intended for deployment. Include any additional files required by the particular upstream release.
 6. Package the prepared folder using your normal deployment process, such as the Microsoft Win32 Content Prep Tool for an Intune Win32 app.
 
-**Repeat the official download step whenever creating a new package or updating the deployed version.** Review the upstream release notes and documentation for changes that may affect the configuration.
+**Repeat the official download step whenever creating a new package or updating the deployed version.**
 
 ## Installation
 
@@ -81,8 +85,10 @@ The repository includes [`DesktopInfo.ps1`](DesktopInfo.ps1), which:
 
 1. Creates `%ProgramData%\DesktopInfo` if it does not exist.
 2. Copies files from the script's **current working directory** into that folder, excluding files with the `.ps1` extension.
-3. Creates `DesktopInfo.lnk` targeting `%ProgramData%\DesktopInfo\DesktopInfo.exe`.
-4. Copies the shortcut into the **All Users Startup** folder at `%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup`.
+3. Creates or updates `DesktopInfo.lnk` targeting `%ProgramData%\DesktopInfo\DesktopInfo.exe` (overwriting the copied shortcut).
+4. Copies `DesktopInfo.lnk` into the **All Users Startup** folder at `%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup`.
+
+**Include `DesktopInfo.lnk` in the packaging source.** The current script also recreates this shortcut during installation before copying it into Startup, so the packaged shortcut is not preserved unchanged.
 
 The installation script does **not** directly launch DesktopInfo. The Startup shortcut starts it at a subsequent user sign-in; **a sign-out/sign-in or reboot may be required** before the display appears.
 
@@ -125,7 +131,7 @@ When updating the package, download the current upstream release, select the app
 | --- | --- |
 | `DesktopInfo.exe` | DesktopInfo executable currently stored in the repository; check upstream for newer releases |
 | `DesktopInfo.ps1` | Copies deployment files and configures startup |
-| `DesktopInfo.lnk` | Shortcut stored in the repository; the installer recreates its own shortcut |
+| `DesktopInfo.lnk` | Required startup shortcut included in the package; the installer recreates it and copies it to the All Users Startup folder |
 | `desktopinfo.ini` | Full configuration |
 | `desktopinfo-cutdown.ini` | CutDown configuration; rename a copy before packaging |
 | `README.md` | Deployment and configuration instructions |
@@ -136,7 +142,7 @@ When updating the package, download the current upstream release, select the app
 - **Wrong layout:** Check that the selected configuration was packaged under the exact name `desktopinfo.ini`.
 - **Files are missing:** Check the working directory used when running `DesktopInfo.ps1` and verify the contents of `%ProgramData%\DesktopInfo`.
 - **Intune reports installed but the expected version is absent:** Review the detection rule; file-exists detection does not distinguish versions.
-- **Configuration options or behaviour have changed:** Consult the PDF documentation included with the latest official download and the [DesktopInfo forum](https://www.glenn.delahoy.com/community/desktop-info/).
+- **Configuration options or behaviour have changed:** Check the [DesktopInfo forum](https://www.glenn.delahoy.com/community/desktop-info/).
 
 ## Credits
 
